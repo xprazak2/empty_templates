@@ -1,0 +1,37 @@
+<%#
+name: Jumpstart default
+snippet: false
+model: ProvisioningTemplate
+kind: provision
+organizations:
+- Default Organization
+- Fritz1Org
+- Fritz2Org
+- Fritz3Org
+- NewOrg
+- OrgB
+- OrgC
+- OrgF
+- OrgG
+- this is very very very very very very very very very very very very very very very
+  very very very long name
+- Unassigned Organization
+- WithOrgAdmin
+locations:
+- Fritz1Loc
+- Fritz2Loc
+- LocA
+- NA/US/AWS
+- WithHans
+- WithHansAgain
+%>
+install_type <%= @install_type %>
+partitioning explicit
+<%= @disk %>
+<% if @host.use_image  -%>
+archive_location nfs <%=@archive_location%>
+<% else -%>
+system_type <%= @system_type %>
+package <%= @packages %> add
+cluster <%= @cluster %>
+<% end -%>
